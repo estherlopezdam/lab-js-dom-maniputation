@@ -16,10 +16,23 @@ class TaskManager {
   buildTaskHTML(task) {
     const taskNode = document.createElement('li');
     taskNode.setAttribute('id', task.id);
-    taskNode.classList.add('list-group-item');
-    taskNode.appendChild(document.createTextNode(task.name));
+    taskNode.classList.add('list-group-item', 'd-flex', 'gap-1', 'align-items-baseline');
 
-    taskNode.addEventListener('click', () => {
+    const taskNameNode = document.createElement('div');
+    taskNameNode.classList.add('me-auto');
+    taskNameNode.appendChild(document.createTextNode(task.name));
+    taskNode.appendChild(taskNameNode);
+
+    const taskActionsNode = document.createElement('div');
+    taskActionsNode.classList.add('d-flex', 'gap-2');
+    taskNode.appendChild(taskActionsNode);
+
+    const deleteTaskNode = document.createElement('i');
+    deleteTaskNode.classList.add('fa', 'fa-trash-o', 'text-danger');
+    deleteTaskNode.setAttribute('role', 'button');
+    taskActionsNode.appendChild(deleteTaskNode);
+
+    deleteTaskNode.addEventListener('click', () => {
       this.delete(task.id);
       this.render();
     });
