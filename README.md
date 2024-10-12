@@ -2,6 +2,7 @@
 
 En este ejercicio, vamos a desarrollar un gestor de tareas utilizando JavaScript y manipulando el DOM para interactuar con la interfaz de usuario. El objetivo es crear una aplicación sencilla que permita a los usuarios añadir, filtrar, completar, eliminar y priorizar tareas, todo esto sin utilizar librerías externas, solo HTML, CSS y JavaScript puro.
 
+DEMO: https://ironptsolutions.github.io/js-dom-manuputation/index.html
 
 # Iteración 1
 
