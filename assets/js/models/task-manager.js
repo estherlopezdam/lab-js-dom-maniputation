@@ -1,12 +1,31 @@
 class TaskManager {
 
-  constructor(containerId) {
+  constructor(containerId, createTaskFormId) {
     this.containerId = containerId;
+    this.createTaskFormId = createTaskFormId;
     this.tasks = [];
+
+    document.getElementById(this.createTaskFormId)
+      .addEventListener('submit', (event) => this.onTaskFormSubmit(event));
   }
 
-  add(name) {
-    this.tasks.push({ id: self.crypto.randomUUID(), name });
+  onTaskFormSubmit(event) {
+    event.preventDefault();
+
+    const form = event.target;
+    const task = Object.fromEntries(new FormData(form).entries());
+    if (task.name.trim() !== '') {
+      this.add(task);
+      form.reset();
+      this.render();
+    }
+  }
+
+  add(task) {
+    this.tasks.push({ 
+      id: self.crypto.randomUUID(), 
+      name: task.name
+    });
   }
 
   delete(id) {

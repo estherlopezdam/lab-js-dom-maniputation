@@ -20,7 +20,16 @@
 <body>
 
   <div class="container py-5">
-    <h2 class="fw-light mb-3">Task List</h2>
+    <h2 class="fw-light mb-3">Task Manager</h2>
+
+    <form id="create-task-form" action="/" method="post">
+      <div class="input-group mb-3">
+        <span class="input-group-text"><i class="fa fa-tag"></i></span>
+        <input name="name" type="text" class="form-control" placeholder="Enter task name...">
+        <button class="btn btn-outline-secondary" type="submit"><i class="fa fa-plus"></i></button>
+      </div>
+    </form>
+
     <ul id="tasks-container" class="list-group">
       <li class="list-group-item d-flex gap-1 align-items-baseline">
         <div class="me-auto">Task 1</div>
