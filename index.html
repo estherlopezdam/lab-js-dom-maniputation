@@ -16,26 +16,60 @@
     crossorigin="anonymous" 
     referrerpolicy="no-referrer" 
     />
+    <link rel="stylesheet" href="assets/css/index.css">
 </head>
 <body>
 
   <div class="container py-5">
-    <h2 class="fw-light mb-3">Task Manager</h2>
+    <div class="d-flex gap-2"> 
+      <h2 class="fw-light me-auto mb-3">Task Manager</h2>
+
+      <div id="task-priority-filter" class="btn-group btn-group-sm mb-3" role="group" aria-label="Basic outlined example">
+        <button type="button" class="btn btn-outline-light" data-priority="all">
+          <span class="text-dark">All</span>
+        </button>
+        <button type="button" class="btn btn-outline-light" data-priority="critical">
+          <img src="assets/img/icons/priority/critical.svg" alt="P1" class="priority-icon" />
+        </button>
+        <button type="button" class="btn btn-outline-light" data-priority="high">
+          <img src="assets/img/icons/priority/high.svg" alt="P1" class="priority-icon" />
+        </button>
+        <button type="button" class="btn btn-outline-light" data-priority="medium">
+          <img src="assets/img/icons/priority/medium.svg" alt="P1" class="priority-icon" />
+        </button>
+        <button type="button" class="btn btn-outline-light" data-priority="low">
+          <img src="assets/img/icons/priority/low.svg" alt="P1" class="priority-icon" />
+        </button>
+        <button type="button" class="btn btn-outline-light" data-priority="minor">
+          <img src="assets/img/icons/priority/minor.svg" alt="P1" class="priority-icon" />
+        </button>
+      </div>
+    </div>
 
     <form id="create-task-form" action="/" method="post">
       <div class="input-group mb-3">
         <span class="input-group-text"><i class="fa fa-tag"></i></span>
-        <input name="name" type="text" class="form-control" placeholder="Enter task name...">
+        <input id="task-name" name="name" type="text" class="form-control" placeholder="Enter task name...">
+        <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+        <input type="date" id="task-date" class="form-control" required>
+        <select id="task-priority" name="priority" class="form-select" aria-label="Priority" required>
+          <option selected value="critical">Critical</option>
+          <option value="high">High</option>
+          <option value="medium">Medium</option>
+          <option value="low">Low</option>
+          <option value="minor">Minor</option>
+        </select>
         <button class="btn btn-outline-secondary" type="submit"><i class="fa fa-plus"></i></button>
       </div>
     </form>
+    
 
     <ul id="tasks-container" class="list-group">
       <li class="list-group-item d-flex gap-1 align-items-baseline">
         <div class="me-auto">Task 1</div>
         <div class="d-flex gap-2">
-          <i class="fa fa-trash-o text-danger" role="button"></i>
           <i class="fa fa-edit text-success" role="button"></i>
+          <i class="fa fa-trash-o text-danger" role="button"></i>
         </div>
       </li>
       <li class="list-group-item">A second item</li>

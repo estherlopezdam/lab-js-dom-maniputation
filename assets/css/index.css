@@ -1,0 +1,5 @@
+.priority-icon {
+    height: 15px;
+    width: auto; /* Mantener la proporción de la imagen */
+    display: block; /* Asegúrate de que se renderice como bloque */
+}
